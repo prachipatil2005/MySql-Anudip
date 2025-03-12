@@ -1,0 +1,66 @@
+Q.1
+-- Add Salary and Department columns to the Employee table
+
+select * from employee;
+alter table employee add Salary int,add Department varchar(255);
+
+-- Insert sample employee data
+
+update employee 
+set Salary=case
+when emp_id=1 then 60000
+when emp_id=2 then 75000
+when emp_id=3 then 48000
+when emp_id=4 then 90000
+when emp_id=5 then 50000
+end,
+Department=case
+when emp_id=1 then 'IT'
+when emp_id=2 then 'HR'
+when emp_id=3 then 'IT'
+when emp_id=4 then 'IT'
+when emp_id=5 then 'Finance'
+end
+where emp_id in(1,2,3,4,5);
+
+-- Retrieve all employees in the IT department with salary greater than 50,000
+
+select * from employee where Department='IT' and Salary>50000;
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Q.2
+CREATE TABLE product (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_name VARCHAR(255) NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL
+); 
+
+INSERT INTO product (product_id,product_name, category, price) VALUES
+(1,'Smartphone', 'Electronics', 65000),
+(2,'Laptop', 'Electronics', 85000),
+(3,'Headphones', 'Electronics', 15000),
+(4,'Refrigerator', 'Appliances', 60000),
+(5,'Smart TV', 'Electronics', 75000),
+(6,'Microwave Oven', 'Appliances', 30000),
+(7,'Tablet', 'Electronics', 68000),
+(8,'Camera', 'Electronics', 72000),
+(9,'Washing Machine', 'Appliances', 55000),
+(10,'Gaming Console', 'Electronics', 50000);
+
+-- Retrieve products that are in the 'Electronics' category OR have a price less than ₹70,000
+SELECT * FROM Product
+WHERE Category = 'Electronics' OR Price < 70000;
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Q.3
+-- Calculate the average salary for each department
+SELECT Department, AVG(Salary) AS Avg_Salary
+FROM Employee
+GROUP BY Department;
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ChatGPT Exercise
+-- Calculate the average age of employees in each department
+SELECT Department, AVG(Age) AS Avg_Age
+FROM Employee
+GROUP BY Department;
+
+

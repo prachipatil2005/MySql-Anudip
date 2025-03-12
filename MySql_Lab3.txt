@@ -1,0 +1,59 @@
+-- Lab 1: Student Management System
+
+-- Task 1: Update Student Email
+-- Purpose: Update the email of the student whose first name is 'Prachi' and last name is 'Patil'
+UPDATE student1
+SET email = 'prachi_patil@example.com'
+WHERE firstName = 'Prachi' AND lastName = 'Patil';
+---------------------------------------------------------------------------------------------------------------
+-- Purpose: Update the email of the instructor whose first name is 'Rahul' and last name is 'Sharma'
+UPDATE instructor
+SET email = 'rahul.sharma@example.com'
+WHERE firstName = 'Rahul' AND lastName = 'Sharma';
+---------------------------------------------------------------------------------------------------------------
+
+
+-- Task 2: Delete Records
+-- Purpose: Delete students whose last name is 'Patil'
+DELETE FROM student1
+WHERE lastName = 'Patil';
+
+---------------------------------------------------------------------------------------------------------------
+
+-- Task 3: Retrieve Students with First Name Starting with 'S'
+-- Purpose: List students whose first name starts with 'S'
+SELECT * FROM student1
+WHERE firstName LIKE 'S%';
+---------------------------------------------------------------------------------------------------------------
+
+-- Lab 2: Employee Database
+
+-- Task 1: Insert Data into Employee Table
+-- Purpose: Insert records into the Employee table
+INSERT INTO employee (emp_id, first_name, last_name, age, email) VALUES
+(1, 'Prachi', 'Patil', 21, 'prachi.patil@example.com'),
+(2, 'Sejal', 'Bhosale', 22, 'sejal.bhosale@example.com'),
+(3, 'Shrushti', 'Pawar', 23, 'shrushti.pawar@example.com'),
+(4, 'Nikita', 'Verma', 24, 'nikita.verma@example.com'),
+(5, 'Sayali', 'Gondhali', 20, 'sayali.gondhali@example.com');
+
+---------------------------------------------------------------------------------------------------------------
+
+-- Task 2: Retrieve Employee Names
+-- Purpose: Retrieve the first_name and last_name of all employees
+SELECT first_name, last_name FROM employee;
+---------------------------------------------------------------------------------------------------------------
+
+
+-- Task 3: Retrieve Employees Older than 22
+-- Purpose: Retrieve first_name, last_name, and age of employees older than 22
+SELECT first_name, last_name, age FROM employee
+WHERE age > 22;
+
+---------------------------------------------------------------------------------------------------------------
+
+-- Task 4: Update Employee Age
+-- Purpose: Increase the age of employees by 1 year for those older than 21
+UPDATE employee
+SET age = age + 1
+WHERE age > 21;

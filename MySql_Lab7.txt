@@ -1,0 +1,54 @@
+-- Task 1: Retrieve students born after June 16, 2009
+SELECT * FROM Student
+WHERE DateOfBirth > '2009-06-16';
+
+-- Task 2: Retrieve students whose first names start with 'A' or 'J'
+SELECT * FROM Student
+WHERE FirstName LIKE 'A%' OR FirstName LIKE 'J%';
+
+-- Task 3: Retrieve students whose first name is not 'Alice' and email contains '@example.com'
+SELECT * FROM Student
+WHERE FirstName <> 'Alice' AND Email LIKE '%@example.com';
+--------------------------------------------------------------------------------------------------------------------------------
+-- Task 1: Create Person table
+CREATE TABLE Person (
+    PersonID INT PRIMARY KEY,
+    FirstName VARCHAR(255),
+    LastName VARCHAR(255),
+    Age INT
+);
+
+-- Task 2: Create Employee table
+CREATE TABLE Employee (
+    emp_id INT PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    age INT
+);
+
+-- Task 3: Insert sample data into Person table
+INSERT INTO Person (PersonID, FirstName, LastName, Age) VALUES
+(1, 'John', 'Doe', 30),
+(2, 'Alice', 'Smith', 25),
+(3, 'Bob', 'Johnson', 35);
+
+-- Task 4: Insert sample data into Employee table
+INSERT INTO Employee (emp_id, first_name, last_name, age) VALUES
+(1, 'Michael', 'Brown', 28),
+(2, 'Sarah', 'Davis', 40),
+(3, 'David', 'Wilson', 32);
+
+-- Task 5: Create a UNION of the Person and Employee tables
+SELECT PersonID AS ID, FirstName, LastName, Age FROM Person
+UNION
+SELECT emp_id AS ID, first_name, last_name, age FROM Employee;
+
+---------------------------------------------------------------------------------------------------------------------
+ChatGPT Exercise
+
+SELECT c.CourseId, c.CourseName, AVG(g.Grade) AS Avg_Grade
+FROM Course c
+JOIN Grade g ON c.CourseId = g.CourseID
+GROUP BY c.CourseId, c.CourseName
+HAVING AVG(g.Grade) < 2.0; 
+

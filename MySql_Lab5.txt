@@ -1,0 +1,28 @@
+Lab 1: Retrieve Students in Ascending Order by Last Name.
+
+-- Retrieve student information in ascending order based on last names
+SELECT * FROM student  
+ORDER BY last_name ASC;
+
+
+Lab 2: Count Students Based on Gender
+-- Count the number of students based on gender
+SELECT gender, COUNT(*) AS student_count  
+FROM student  
+GROUP BY gender;
+
+
+ChatGPT Exercise: Count Books Written by Each Author (Without JOIN)
+
+INSERT INTO student1 (student_id, first_name, last_name, date_of_birth, gender, email, phone_number)  
+VALUES  
+(6, 'Rahul', 'Sharma', '2002-08-15', 'Male', 'rahul@gmail.com', '9876543210'),  
+(7, 'Aarav', 'Mehta', '2001-12-10', 'Male', 'aarav@gmail.com', '8765432109'),  
+(8, 'Riya', 'Deshmukh', '2004-04-22', 'Female', 'riya@gmail.com', '7654321098'),  
+(9, 'Aditya', 'Kulkarni', '2000-06-30', 'Male', 'aditya@gmail.com', '6543210987'),  
+(10, 'Pooja', 'Joshi', '2003-11-05', 'Female', 'pooja@gmail.com', '5432109876');  
+
+SELECT gender, COUNT(*) AS student_count  
+FROM student  
+GROUP BY gender;
+

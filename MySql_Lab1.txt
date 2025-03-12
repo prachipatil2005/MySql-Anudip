@@ -1,0 +1,114 @@
+Lab 1. Create a Database & Table Using MySQL Command-Line Client.
+● Create a database with the name StudentManagementSystem.
+Create a table with named Student with attributes:
+● StudentID (Primary Key)
+● FirstName
+● LastName
+● DateOfBirth
+● Gender
+● Email
+● Phone
+
+create database StudentManagementSystem;
+use StudentManagementSystem;
+create table student;
+show tables;
+create table student1(
+	studentId int primary key auto_increment,
+    firstName varchar(30) not null,
+    lastName varchar(30) not null,
+    dateOfBirth date not null,
+    gender enum('Male','Female','Other') not null,
+    email varchar(100) unique,
+    phone varchar(15) unique
+);
+
+------------------------------------------------------------------------------------------------------------------------------------
+Create a table with name Course with attributes:
+● CourseID (Primary Key)
+● CourseTitle
+● Credits
+
+create table course(
+	courseId int primary key auto_increment,
+    courseTitle varchar(50) not null,
+    credits int not null
+);
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Create a table with named Instructor with attributes:
+● InstructorID (Primary Key)
+● FirstName
+● LastName
+● Email
+
+create table instructor(
+	instructorId int primary key auto_increment,
+    firstName varchar(30) not null,
+    lastName varchar(30) not null,
+    email varchar(50) unique
+    
+);
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Create a table with named Enrollment with attributes:
+● EnrollmentID (Primary Key)
+● EnrollmentDate
+● StudentID(Foreign key)
+● CourseID(Foreign Key)
+● InstructorID(Foreign key)
+
+create table enrollment(
+	enrollmentId int primary key auto_increment,
+    enrollmentDate date not null,
+    studentId int,
+    courseId int,
+    instructorId int,
+    foreign key (studentId) references student1(studentId),
+    foreign key (courseId) references course(courseId),
+    foreign key (instructorId) references instructor(instructorId)
+    
+    
+);
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Create a table with named Score with attributes:
+● ScoreID (Primary Key)
+● CourseID (Foreign key)
+● StudentID (Foreign Key)
+● DateOfExam
+● CreditObtained
+
+create table score(
+	scoreId int primary key auto_increment,
+    courseId int,
+    studentId int,
+    dateOfExam date not null,
+	foreign key (courseId) references course(courseId),
+    foreign key (studentId) references student1(studentId)
+    
+);
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+Create a table with named Feedback with attributes:
+● FeedbackID (Primary Key)
+● StudentID (Foreign key)
+● Date
+● InstructorName
+● Feedback
+
+create table feedback(
+	feedbackId int primary key auto_increment,
+	studentId int,
+    FDate date not null,
+    instructureName varbinary(30) not null,
+    feedback text,
+	foreign key (studentId) references student1(studentId)
+
+    
+    
+);
